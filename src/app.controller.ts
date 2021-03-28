@@ -97,25 +97,6 @@ export class AppController {
     });
   }
 
-  @Post('remittance-with-error-and-transaction')
-  @ApiResponse({
-    type: RemittanceResultDto,
-  })
-  async makeRemittanceWithErrorAndTransaction(
-    @Body() remittanceDto: RemittanceDto,
-  ) {
-    return await this.connection.transaction((manager) => {
-      return this.appService
-        .withTransaction(manager)
-        .makeRemittance(
-          remittanceDto.userIdFrom,
-          remittanceDto.userIdTo,
-          remittanceDto.sum,
-          true,
-        );
-    });
-  }
-
   @Patch('purse/:purseId/top-up')
   @ApiResponse({
     type: Purse,

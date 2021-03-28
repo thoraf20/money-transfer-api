@@ -23,9 +23,10 @@ export const NOT_ENOUGH_MONEY = (userId: number) =>
 
 @Injectable()
 export class AppService extends TransactionFor<AppService> {
-  withTransaction(manager: any) {
-    throw new Error('Method not implemented.');
-  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // withTransaction(manager: any) {
+  //   throw new Error('Method not implemented.');
+  // }
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
